@@ -1,10 +1,10 @@
-FROM gliderlabs/alpine:3.3
-MAINTAINER Paul Howell
+FROM alpine:latest
+LABEL maintainer="Paul Howell <paul.howell+docker@gmail.com>"
 
 EXPOSE 514 514/udp
 
 VOLUME /var/log
 
-RUN apk add --update rsyslog; rm -rf /var/cache/apk/*
+RUN apk add --no-cache rsyslog
 
 CMD ["rsyslogd", "-n"]
